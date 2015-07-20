@@ -1,0 +1,114 @@
+@mixin firefox_only($selector, $attr, $value) {
+  _:-moz-tree-row(hover), #{$selector} {
+    #{$attr}: #{$value};
+  }
+}
+
+@mixin firefox_29_gt($selector, $attr, $value) {
+  @media all and (min--moz-device-pixel-ratio: 0) and (min-resolution: 3 e1dpcm) {
+    #{$selector} {
+      #{$attr}: #{$value};
+    }
+  }
+}
+
+@mixin chrome_28_gt_and_opera_14_gt($selector, $attr, $value) {
+  @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    #{$selector} {
+      #{$attr}: #{$value};
+    }
+  }
+}
+
+@mixin internet_explorer_6_only($selector, $attr, $value) {
+  #{$selector} { _#{$attr}: #{$value}; }
+  #{$selector} { -#{$attr}: #{$value}; }
+}
+
+@mixin internet_explorer_7_only($selector, $attr, $value) {
+  *:first-child + html #{$selector} {
+    #{$attr}: #{$value};
+  }
+  #{$selector}, x:-IE7 {
+    #{$attr}: #{$value};
+  }
+  * + html #{$selector} {
+    #{$attr}: #{$value};
+  }
+  body *#{$selector} {
+    #{$attr}: #{$value};
+  }
+}
+
+@mixin internet_explorer_8_only($selector, $attr, $value) {
+  @media \0screen {
+    #{$selector} {
+      #{$attr}: #{$value};
+    }
+  }
+}
+
+@mixin internet_explorer_9_gt_and_safari_4_and_android_2dot3_gt($selector, $attr, $value) {
+  @media screen and (min-width:0\0) {
+    #{$selector} {
+      #{$attr}: #{$value};
+    }
+  }
+}
+
+@mixin internet_explorer_10_gt($selector, $attr, $value) {
+  _:-ms-input-placeholder, :root #{$selector} {
+    #{$attr}: #{$value};
+  }
+}
+
+@mixin internet_explorer_11_gt($selector, $attr, $value) {
+  _:-ms-fullscreen, :root #{$selector} {
+    #{$attr}: #{$value};
+  }
+}
+
+@mixin opera_11_lt($selector, $attr, $value) {
+  @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
+    #{$selector} {
+      #{$attr}: #{$value};
+    }
+  }
+}
+
+@mixin opera_9dot5_gt($selector, $attr, $value) {
+  _:-o-prefocus, body:last-child #{$selector} {
+    #{$attr}: #{$value};
+  }
+}
+
+@mixin opera_12_gt($selector, $attr, $value) {
+  @media (min-resolution: .001dpcm) {
+  _:-o-prefocus, #{$selector} {
+      #{$attr}: #{$value};
+    }
+  }
+}
+
+@mixin opera_14_gt_and_chrome_28_gt($selector, $attr, $value) {
+  @media all and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: .001dpcm) {
+    #{$selector} {
+      #{$attr}: #{$value};
+    }
+  }
+}
+
+@mixin safari_5dot1dot6_only($selector, $attr, $value) {
+  _::-moz-svg-foreign-content, :root #{$selector} {
+    #{$attr}: #{$value};
+  }
+}
+
+@mixin safari_2-3($selector, $attr, $value) {
+  html[xmlns*=""] body:last-child #{$selector} {
+    #{$attr}: #{$value};
+  }
+  html[xmlns*=""]:root #{$selector}  {
+    #{$attr}: #{$value};
+  }
+}
